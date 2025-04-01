@@ -1,0 +1,162 @@
+/* 
+ * Methali Page Specific Styles
+ * Complementary styles for the Swahili proverbs (methali) page
+ */
+
+/* Alphabet Navigation */
+.alphabet-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 2rem 0;
+  padding: 1rem;
+  background-color: #f8f8f8;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.alphabet-nav a {
+  display: inline-block;
+  padding: 0.5rem 0.75rem;
+  margin: 0.25rem;
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  text-align: center;
+  transition: all var(--transition-speed) ease;
+}
+
+.alphabet-nav a:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+.alphabet-nav a:focus {
+  outline: 3px solid var(--primary-light);
+  outline-offset: 2px;
+}
+
+/* Proverbs Section */
+.methali-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.letter-section {
+  margin-bottom: 3rem;
+  scroll-margin-top: 5rem;
+}
+
+.letter-heading {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+.proverb-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.proverb-card {
+  background-color: white;
+  border-radius: var(--border-radius);
+  padding: 1.25rem;
+  box-shadow: var(--box-shadow);
+  transition: transform var(--transition-speed) ease;
+}
+
+.proverb-card:hover {
+  transform: translateY(-5px);
+}
+
+.proverb-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+.proverb-number {
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-right: 0.5rem;
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+  transition: all var(--transition-speed) ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-5px);
+}
+
+/* Page header section */
+.page-header {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.page-header h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.page-header p {
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .proverb-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .alphabet-nav {
+    padding: 0.5rem;
+  }
+  
+  .alphabet-nav a {
+    padding: 0.4rem 0.6rem;
+    margin: 0.2rem;
+  }
+  
+  .letter-heading {
+    font-size: 2rem;
+  }
+  
+  .page-header h1 {
+    font-size: 2rem;
+  }
+}

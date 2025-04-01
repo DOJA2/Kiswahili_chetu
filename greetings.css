@@ -1,0 +1,107 @@
+/* General styles */
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding-top: 100px;
+}
+main > div > div {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333; /* Darker color for text contrast */
+    margin-bottom: 10px;
+    text-transform: uppercase; /* Makes headings uppercase */
+    border-bottom: 2px solid #ddd; /* Underline the heading */
+    padding-bottom: 10px;
+}
+
+p {
+    font-size: 18px;
+    color: #555; /* Lighter gray for paragraph text */
+    line-height: 1.6; 
+}
+
+main div {
+    margin-bottom: 40px;
+}
+
+/* When hovering over the image, slightly enlarge it */
+#partofthebody img:hover {
+    transform: scale(1.05);
+}
+
+.hidden-nav {
+    display: none;
+}
+/* Styles for the full-size image overlay */
+#imageModal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 9999; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Black background with opacity */
+    overflow: auto;
+}
+
+/* Modal content (image) */
+#imageModal img {
+    margin: auto;
+    display: block;
+    width: 80%; /* Scale the image size in modal */
+    height: auto;
+    max-width: 700px;
+}
+
+/* Close button */
+#imageModal .close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#partofthebody img {
+    width: 150px; /* Set a fixed width */
+    height: 150px; /* Set a fixed height */
+    object-fit: cover; /* Maintain aspect ratio and cover the defined area */
+    margin-right: 10px;
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: transform 0.3s ease; /* Smooth hover animation */
+    background-color: #f0f8ff; /* Light background color */
+    padding: 10px; /* Add some padding */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+    main {
+        padding: 20px;
+        padding-top: 80px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+}
