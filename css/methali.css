@@ -3,23 +3,57 @@
  * Complementary styles for the Swahili proverbs (methali) page
  */
 
+ /* Main Content Container */
+main {
+    padding: 0 20px;  /* Added horizontal padding */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Page Header Section */
+.page-header {
+    background: linear-gradient(135deg, #009688, #4CAF50);
+    color: white;
+    padding: 50px 20px;  /* Increased padding top/bottom */
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.methali-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;  /* Added horizontal padding */
+}
+
 /* Alphabet Navigation */
 .alphabet-nav {
-  display: flex;
+  /* display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin: 2rem 0;
   padding: 1rem;
   background-color: #f8f8f8;
   border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
+  box-shadow: var(--box-shadow); */
+  display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 2rem auto;  /* Changed to auto for horizontal centering */
+    padding: 1.5rem 2rem;  /* Increased padding */
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 1100px;  /* Match container width */
 }
 
 .alphabet-nav a {
   display: inline-block;
   padding: 0.5rem 0.75rem;
   margin: 0.25rem;
-  background-color: var(--primary-color);
+  background: linear-gradient(135deg, #009688, #4CAF50);
   color: var(--text-light);
   border-radius: var(--border-radius);
   font-weight: 600;
@@ -52,10 +86,25 @@
 .letter-heading {
   font-size: 2.5rem;
   font-weight: 800;
-  color: var(--primary-color);
+  /* border-bottom: 3px solid var(--primary-color); */
+  background: linear-gradient(135deg, #009688, #4CAF50);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
   padding-bottom: 0.5rem;
-  border-bottom: 3px solid var(--primary-color);
+  position: relative;
   margin-bottom: 1.5rem;
+  display: inline-block;
+}
+
+.letter-heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(135deg, #009688, #4CAF50);
 }
 
 .proverb-list {
@@ -84,15 +133,19 @@
 
 .proverb-number {
   font-weight: 600;
-  color: var(--primary-color);
   margin-right: 0.5rem;
+  background: linear-gradient(135deg, #009688, #4CAF50);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
 }
 
 .back-to-top {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  background-color: var(--primary-color);
+  background: linear-gradient(135deg, #009688, #4CAF50);
   color: var(--text-light);
   width: 50px;
   height: 50px;
@@ -119,7 +172,7 @@
 
 /* Page header section */
 .page-header {
-  background-color: var(--primary-color);
+  background: linear-gradient(135deg, #009688, #4CAF50);
   color: var(--text-light);
   padding: 3rem 1rem;
   text-align: center;
