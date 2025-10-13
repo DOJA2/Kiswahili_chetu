@@ -161,6 +161,7 @@ header {
 .nav-right ul {
   display: flex;
   align-items: center;
+  background: linear-gradient(to right, #009688, #4CAF50);
 }
 
 .nav-right ul li {

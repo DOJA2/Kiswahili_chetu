@@ -51,8 +51,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Toggle menu for mobile view
 function toggleMenu() {
-    const navMenu = document.getElementById('nav-menu');
-    if (navMenu) {
-        navMenu.classList.toggle('show');
+    const navRight = document.getElementById('.nav-right ul');
+    if(navRight){
+        navRight.classList.toggle('show');
     }
 }
