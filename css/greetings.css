@@ -15,13 +15,14 @@ body {
     padding: 60px 20px;
     text-align: center;
     margin-bottom: 30px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-radius: 8px 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .page-header h1 {
     font-size: 2.5rem;
     margin: 0;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
     font-weight: 700;
 }
 
@@ -34,67 +35,147 @@ body {
 /* Main Content Styling */
 main {
     padding: 20px;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
-/* Section Container Styling */
+/* Search Container Styling */
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 40px;
+    max-width: 600px;
+    background: white;
+    padding: 8px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+.search-container:focus-within {
+    box-shadow: 0 6px 20px rgba(0, 150, 136, 0.15);
+    border-color: #009688;
+    transform: translateY(-2px);
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    color: #333;
+    font-family: inherit;
+    background: transparent;
+}
+
+.search-btn {
+    background: linear-gradient(135deg, #009688, #4CAF50);
+    color: white;
+    border: none;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 150, 136, 0.3);
+}
+
+.search-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 150, 136, 0.4);
+}
+
+.search-btn:active {
+    transform: scale(0.95);
+}
+
+/* Highlight matching text (will be added via JS if needed) */
+.highlight {
+    background-color: #fff9c4;
+    color: #d32f2f;
+    padding: 0 2px;
+    border-radius: 2px;
+}
+
+/* No results message */
+.no-results {
+    text-align: center;
+    grid-column: 1 / -1;
+    padding: 40px;
+    color: #666;
+    font-size: 1.2rem;
+    display: none;
+}
+
+/* Section Container Styling - Improved Grid System */
 .section-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 20px;
     padding: 0 20px;
     max-width: 1400px;
     margin: 0 auto 30px;
+    align-items: stretch;
+    /* Makes cards same height in each row */
 }
 
-/* Section layout classes */
+/* Layout 1: 12-column grid for flexible arrangements */
 .section-layout-1 {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(12, 1fr);
 }
 
+/* Layout 2: 12-column grid for second container */
 .section-layout-2 {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(12, 1fr);
 }
 
+/* Layout 3: Full width single column */
 .section-layout-3 {
     grid-template-columns: 1fr;
 }
 
-/* Section size classes */
+/* Section size classes - uses 12-column grid */
 .section-small {
-    grid-column: span 1;
+    grid-column: span 4;
 }
 
 .section-medium {
-    grid-column: span 2;
+    grid-column: span 6;
 }
 
 .section-large {
-    grid-column: span 3;
+    grid-column: span 12;
 }
 
 .section-full {
     grid-column: 1 / -1;
 }
 
-/* Content grid styling */
+/* Content grid styling - improved flexibility with more horizontal space */
 .content-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 10px;
+    flex: 1;
 }
 
-/* Section Card Styling */
+/* Section Card Styling - Equal height with stretch */
 .section-card {
     background: white;
     border-radius: 12px;
     padding: 25px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    min-height: 320px;
     display: flex;
     flex-direction: column;
+    height: 100%;
+    /* Ensures cards stretch to match row height */
 }
 
 .section-card:hover {
@@ -113,7 +194,7 @@ main {
     text-align: center;
 }
 
-/* Content Styling */
+/* Content Styling - allow text to flow naturally */
 .section-card p {
     margin: 8px 0;
     display: flex;
@@ -151,19 +232,21 @@ main {
     padding-left: 15px;
     border-left: 3px solid #4CAF50;
     margin: 10px 0;
+    white-space: normal;
+    /* Allow wrapping for notes */
 }
 
 /* Category Label */
 .category-label {
-  display: inline-block;
-  background-color: #e8f5e9;
-  color: #009688;
-  padding: 4px 10px;
-  border-radius: 4px;
-  font-size: 0.8rem;
-  margin-bottom: 15px;
-  font-weight: 500;
-  align-self: flex-start;
+    display: inline-block;
+    background-color: #e8f5e9;
+    color: #009688;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-bottom: 15px;
+    font-weight: 500;
+    align-self: flex-start;
 }
 
 /* Body Parts Grid Styling */
@@ -234,34 +317,7 @@ main {
     font-size: 1rem;
     font-weight: 500;
     color: #009688;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .section-container {
-        grid-template-columns: 1fr;
-        padding: 0 15px;
-    }
-    
-    .section-card.long-list {
-        grid-column: span 1;
-    }
-    
-    .content-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .section-card {
-        min-height: auto;
-    }
-    
-    .body-parts-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .image-gallery {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    }
+    white-space: normal;
 }
 
 /* Image Modal Styling */
@@ -304,11 +360,11 @@ main {
 
 /* Footer Styling */
 footer {
-  background: linear-gradient(135deg, #009688, #4CAF50);
-  color: white;
-  text-align: start;
-  padding: 2rem 0 0;
-  margin-top: 50px;
+    background: linear-gradient(135deg, #009688, #4CAF50);
+    color: white;
+    text-align: start;
+    padding: 2rem 0 0;
+    margin-top: 50px;
 }
 
 .footer-content {
@@ -407,25 +463,226 @@ footer {
     background-color: #388e3c;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Large screens (1200px and above) */
+@media (min-width: 1200px) {
+    .section-small {
+        grid-column: span 4;
+    }
+
+    .section-medium {
+        grid-column: span 6;
+    }
+
+    .section-large {
+        grid-column: span 12;
+    }
+
+    .content-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+
+    /* Allow text to wrap on larger screens if needed */
+    .section-card p {
+        white-space: normal;
+    }
+}
+
+/* Medium screens (992px to 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .section-small {
+        grid-column: span 4;
+    }
+
+    .section-medium {
+        grid-column: span 6;
+    }
+
+    .section-large {
+        grid-column: span 12;
+    }
+
+    .content-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .section-card p {
+        white-space: normal;
+        font-size: 0.95rem;
+    }
+}
+
+/* Tablet screens (768px to 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .section-container {
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    .section-small {
+        grid-column: span 3;
+    }
+
+    .section-medium {
+        grid-column: span 6;
+    }
+
+    .section-large {
+        grid-column: span 6;
+    }
+
+    .content-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .section-card p {
+        white-space: normal;
+        font-size: 0.9rem;
+        padding: 4px 8px;
+    }
+
     .page-header {
         padding: 40px 15px;
     }
-    
+
     .page-header h1 {
         font-size: 2rem;
     }
-    
+
     .page-header p {
         font-size: 1rem;
     }
-    
+}
+
+/* Small screens (576px to 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+    .section-container {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 15px;
+        gap: 15px;
+    }
+
+    .section-small {
+        grid-column: span 1;
+    }
+
+    .section-medium {
+        grid-column: span 2;
+    }
+
+    .section-large {
+        grid-column: span 2;
+    }
+
+    .content-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .section-card p {
+        white-space: normal;
+        font-size: 0.9rem;
+        padding: 4px 6px;
+        margin: 5px 0;
+    }
+
+    .page-header {
+        padding: 35px 15px;
+    }
+
+    .page-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .body-parts-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+}
+
+/* Extra small screens (575px and below) - Mobile */
+@media (max-width: 575px) {
     .section-container {
         grid-template-columns: 1fr;
+        padding: 0 10px;
+        gap: 15px;
     }
-    
-    /* Mobile menu styles */
+
+    .section-small,
+    .section-medium,
+    .section-large {
+        grid-column: span 1;
+    }
+
+    /* Single column content grid on mobile - removes space between grid items */
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+        /* Remove gap between grid items on mobile */
+    }
+
+    /* Remove margin/padding gaps between content-grid divs */
+    .content-grid>div {
+        margin: 0;
+        padding: 0;
+    }
+
+    .section-card p {
+        white-space: normal;
+        font-size: 0.9rem;
+        padding: 4px 8px;
+        margin: 4px 0;
+        /* Reduced margin for tighter spacing */
+    }
+
+    .page-header {
+        padding: 30px 10px;
+    }
+
+    .page-header h1 {
+        font-size: 1.6rem;
+    }
+
+    .page-header p {
+        font-size: 0.95rem;
+    }
+
+    .section-card {
+        padding: 20px 15px;
+    }
+
+    .section-card h2 {
+        font-size: 1.3rem;
+    }
+
+    .body-parts-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .image-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .body-part-image img {
+        height: 120px;
+    }
+
+    main {
+        padding: 10px;
+    }
+
+    .body-part-item {
+        padding: 8px 12px;
+    }
+}
+
+/* Mobile navigation styles */
+@media (max-width: 768px) {
     .nav-right ul {
         position: absolute;
         top: 100%;
@@ -436,89 +693,87 @@ footer {
         flex-direction: column;
         width: 100%;
         text-align: center;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         z-index: 1000;
     }
-    
+
     .nav-right ul.show {
         display: flex;
     }
-    
+
     .nav-right ul li {
         margin: 0;
         padding: 0;
         width: 100%;
     }
-    
+
     .nav-right ul li a {
         display: block;
         padding: 1rem;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
-    
+
     .nav-right ul li:last-child a {
         border-bottom: none;
     }
-    
+
     .menu-icon {
         display: block;
     }
-    
+
     /* Menu icon animation */
     .menu-icon.active .menu-icon-bar:nth-child(1) {
         transform: translateY(8px) rotate(45deg);
     }
-    
+
     .menu-icon.active .menu-icon-bar:nth-child(2) {
         opacity: 0;
     }
-    
+
     .menu-icon.active .menu-icon-bar:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
     }
-    
+
     /* Modal styling for mobile */
     #imageModal {
         padding: 30px;
     }
-    
+
     #modalImage {
         max-width: 100%;
     }
-    
+
     /* Footer responsive */
     .footer-content {
         grid-template-columns: 1fr;
         text-align: center;
     }
-    
+
     .social-links {
         justify-content: center;
     }
-}
 
-@media (max-width: 480px) {
-    .page-header h1 {
-        font-size: 1.8rem;
-    }
-    
-    .footer-content {
-        gap: 1.5rem;
-    }
-    
     #back-to-top {
         right: 15px;
         bottom: 15px;
-        width: 40px;
-        height: 40px;
+        width: 45px;
+        height: 45px;
         font-size: 16px;
     }
-    
-    .body-parts-grid {
-        grid-template-columns: 1fr;
+}
+
+/* Print styles */
+@media print {
+    .section-card {
+        break-inside: avoid;
+        page-break-inside: avoid;
     }
-    
-    .image-gallery {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+
+    .section-container {
+        display: block;
+    }
+
+    .section-card {
+        margin-bottom: 20px;
     }
 }
