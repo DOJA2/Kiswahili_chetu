@@ -550,6 +550,16 @@ main {
         line-height: 30px;
         font-size: 0.8rem;
     }
+
+    /* Footer Alignment Consistency */
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
 }
 
 /* Print styles */

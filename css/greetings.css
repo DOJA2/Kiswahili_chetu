@@ -683,6 +683,11 @@ footer {
 
 /* Mobile navigation styles */
 @media (max-width: 768px) {
+    .search-container {
+        width: 95%;
+        margin-bottom: 30px;
+    }
+
     .nav-right ul {
         position: absolute;
         top: 100%;
